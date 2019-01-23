@@ -26,22 +26,34 @@ Given this existing set of users:
 When run the script will display the following:
 
 ```
-$ python3 migrate_users.py
+brianleonard$ python3 migrate_users.py
 
 Migrating MongoDB Users
 
-3 potential users to be migrated
+4 potential users to be migrated
 
 >>> Migrating user:
-{'_id': 'admin.brian', 'user': 'brian', 'db': 'admin', 'roles': [{'role': 'readAnyDatabase', 'db': 'admin'}, {'role': 'readWriteAnyDatabase', 'db': 'admin'}], 'mechanisms': ['SCRAM-SHA-1']}
+{'_id': 'admin.brian', 'user': 'brian', 'db': 'admin', 'roles': [{'role': 'readAnyDatabase', 'db': 'admin'}], 'mechanisms': ['SCRAM-SHA-1']}
 
 Formatted roles:
-[{'databaseName': 'admin', 'roleName': 'readAnyDatabase'}, {'databaseName': 'admin', 'roleName': 'readWriteAnyDatabase'}]
+[{'databaseName': 'admin', 'roleName': 'readAnyDatabase'}]
 
 User data sent to Atlas API:
-{'databaseName': 'admin', 'roles': [{'databaseName': 'admin', 'roleName': 'readAnyDatabase'}, {'databaseName': 'admin', 'roleName': 'readWriteAnyDatabase'}], 'username': 'brian', 'password': 'changeme123'}
+{'databaseName': 'admin', 'roles': [{'databaseName': 'admin', 'roleName': 'readAnyDatabase'}], 'username': 'brian', 'password': 'changeme123'}
 
 User brian created.
+>>>
+
+>>> Migrating user:
+{'_id': 'admin.david', 'user': 'david', 'db': 'admin', 'roles': [{'role': 'read', 'db': 'marketing'}, {'role': 'readWrite', 'db': 'sales'}], 'mechanisms': ['SCRAM-SHA-1']}
+
+Formatted roles:
+[{'databaseName': 'marketing', 'roleName': 'read'}, {'databaseName': 'sales', 'roleName': 'readWrite'}]
+
+User data sent to Atlas API:
+{'databaseName': 'admin', 'roles': [{'databaseName': 'marketing', 'roleName': 'read'}, {'databaseName': 'sales', 'roleName': 'readWrite'}], 'username': 'david', 'password': 'changeme123'}
+
+User david created.
 >>>
 
 <<<Skipping user mms-automation>>>
