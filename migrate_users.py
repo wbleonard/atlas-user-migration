@@ -53,7 +53,7 @@ for user in users:
   resp = requests.post(url=url, auth=HTTPDigestAuth(params.target_api_user, params.target_api_key), json=userdata, headers=headers)
   
   if resp.status_code == 201:
-    print(user["user"] + " created.")
+    print("User " + user["user"] + " created.")
   elif resp.status_code == 409:
     print(user["user"] + " alredy exists.")
   else:
