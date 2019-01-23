@@ -20,7 +20,7 @@ target_project_id = '<Project ID found under Atlas Project Settings>'
 target_api_user = '<User Name>'
 target_api_key = '<API Key>'
 ```
-Given this existing set up users:
+Given this existing set of users:
 ![](images/source_users.png)
 
 When run the script will display the following:
