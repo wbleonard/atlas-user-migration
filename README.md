@@ -2,11 +2,14 @@
 
 Atlas provides excellent tools, such as [Live Migration](https://docs.atlas.mongodb.com/import/live-import/) and [mongomirror](https://docs.atlas.mongodb.com/import/mongomirror/) for migrating your data to Atlas. However, neither of these tools import user and role data.
 
-This utility is a Python script that was written to assist migrating your existing database users and roles to Atlas. The only thing it can't migrate is user passwords, so the script would have to be modified with the passwords you want to use, or they would have to be changed later.
+This utility is a Python script that was written to assist migrating your existing database users and roles to Atlas. The only thing it can't migrate is user passwords, so the script randomly generates passwords and saves them to a ```users.text``` file.
 
 The script uses the [Python driver](https://docs.mongodb.com/ecosystem/drivers/python/#python-driver) to fetch your existing users and roles. However, as the [createUser](https://docs.mongodb.com/manual/reference/command/createUser/#dbcmd.createUser) command is [not supported](https://docs.atlas.mongodb.com/reference/unsupported-commands-paid-tier-clusters/) by Atlas, users need to be created using the [Database Users](https://docs.atlas.mongodb.com/reference/api/database-users/) REST api.
 
-To use the tool, you need to populate a [params.py](params.py) file with your credentials. As a prerequisite, you must have already [Configured Atlas API Access](https://docs.atlas.mongodb.com/configure-api-access/). 
+To use the tool:
+* ```pip install -r requirements.txt```
+
+* Pouplate the [params.py](params.py) file with your credentials. As a prerequisite, you must  have an [Atlas Organization API Key](https://www.mongodb.com/docs/atlas/configure-api-access/#create-an-api-key-in-an-organization). 
 
 ```
 # Input parameters
@@ -17,8 +20,8 @@ source_database = 'admin'
 
 # For Atlas REST API
 target_project_id = '<Project ID found under Atlas Project Settings>'
-target_api_user = '<User Name>'
-target_api_key = '<API Key>'
+target_api_public_key = '<API Public Key>'
+target_api_private_key = '<API Private Key>'
 ```
 Given this existing set of users:
 ![](images/source_users.png)

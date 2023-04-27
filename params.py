@@ -1,11 +1,11 @@
 # Input parameters
 
 # Source DB
-source_conn_string = <Application connection string>
+source_conn_string =<Source Connection String>
 source_database = 'admin'
 
 # For Atlas REST API
-target_project_id = '<Project ID found under Atlas Project Settings>'
-target_api_user = '<User Name>'
-target_api_key = '<API Key>'
+target_project_id = <Atlas Project ID>
+target_api_public_key = <Atlas Public API Key>
+target_api_private_key = <Atlas Private API Key>
 
