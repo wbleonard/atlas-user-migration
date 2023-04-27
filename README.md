@@ -1,6 +1,6 @@
 # Atlas Database User Migration Utility
 
-Atlas provides excellent tools, such as [Live Migration](https://docs.atlas.mongodb.com/import/live-import/) and [mongomirror](https://docs.atlas.mongodb.com/import/mongomirror/) for migrating your data to Atlas. However, neither of these tools import user and role data.
+Atlas provides excellent tools, such as [Cluster-to-Cluster Sync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/), [Live Migrate](https://docs.atlas.mongodb.com/import/live-import/) and [mongomirror](https://docs.atlas.mongodb.com/import/mongomirror/) for migrating your data to Atlas. However, neither of these tools import user and role data.
 
 This utility is a Python script that was written to assist migrating your existing database users and roles to Atlas. The only thing it can't migrate is user passwords, so the script randomly generates passwords and saves them to a ```users.text``` file.
 
